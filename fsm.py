@@ -39,3 +39,6 @@ class TocMachine(GraphMachine):
 
         userid = event.source.user_id
         send_button_template(userid)
+
+    def funny(self,event):
+        pass
