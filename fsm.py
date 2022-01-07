@@ -27,6 +27,14 @@ class TocMachine(GraphMachine):
         userid = event.source.user_id
         send_button_nckutemplate(userid)
 
+    def is_going_to_google(self, event):
+        text = event.message.text
+        return text.lower() == "我要加分"
+
+    def on_enter_google(self, event):
+        userid = event.source.user_id
+        send_button_googletemplate(userid)
+
     def is_going_backmenu(self, event):
         text = event.message.text
         if re.match('選單', text):

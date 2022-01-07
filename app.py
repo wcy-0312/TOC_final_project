@@ -14,7 +14,7 @@ load_dotenv()
 
 
 machine = TocMachine(
-    states=["user", "menu", "anime", "ncku"],
+    states=["user", "menu", "anime", "ncku", "map"],
     transitions=[
         {
             "trigger": "advance",
@@ -36,9 +36,16 @@ machine = TocMachine(
             "dest": "ncku",
             "conditions": "is_going_to_ncku",
         },
+
+        {
+            "trigger": "advance",
+            "source": "menu",
+            "dest": "google",
+            "conditions": "is_going_to_goole",
+        },
         
         {   "trigger": "advance", 
-            "source": ["ncku", "anime"],
+            "source": ["ncku", "anime", "google"],
             "dest": "menu",
             "conditions": "is_going_backmenu"
         },

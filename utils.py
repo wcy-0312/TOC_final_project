@@ -30,6 +30,10 @@ def send_button_template(id):
                 MessageTemplateAction(
                     label='NCKU',
                     text='慧做事，貞放心'
+                ),
+                MessageTemplateAction(
+                    label='Google',
+                    text='我要加分'
                 )
             ]
         )
@@ -101,6 +105,34 @@ def send_button_nckutemplate(id):
     )
     line_bot_api.push_message(id, message)
     return "OK"
+
+def send_button_googletemplate(id):
+    line_bot_api = LineBotApi(channel_access_token)
+    message = TemplateSendMessage(
+        alt_text='Google',
+        template=ButtonsTemplate(
+            thumbnail_image_url='https://storage.googleapis.com/support-kms-prod/ZAl1gIwyUsvfwxoW9ns47iJFioHXODBbIkrK',
+            title='Google選單',
+            text='+分+分',
+            actions=[
+                URITemplateAction(
+                    label='信箱',
+                    uri='https://mail.google.com/mail/u/0/#inbox'
+                ),
+                URITemplateAction(
+                    label='雲端硬碟',
+                    uri='https://drive.google.com/drive/u/0/my-drive?hl=zh-TW'
+                ),
+                URITemplateAction(
+                    label='地圖',
+                    uri='https://www.google.com.tw/maps/@23.546162,120.6402133,8z?hl=zh-TW'
+                ),
+            ]
+            
+        )
+    )
+    line_bot_api.push_message(id, message)
+    return "OK"    
 """
 def send_image_url(id, img_url):
     pass
