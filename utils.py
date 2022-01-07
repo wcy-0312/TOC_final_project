@@ -109,11 +109,11 @@ def send_button_nckutemplate(id):
 def send_button_googletemplate(id):
     line_bot_api = LineBotApi(channel_access_token)
     message = TemplateSendMessage(
-        alt_text='Google',
+        alt_text='google',
         template=ButtonsTemplate(
             thumbnail_image_url='https://storage.googleapis.com/support-kms-prod/ZAl1gIwyUsvfwxoW9ns47iJFioHXODBbIkrK',
             title='Google選單',
-            text='+分+分',
+            text='google',
             actions=[
                 URITemplateAction(
                     label='信箱',
